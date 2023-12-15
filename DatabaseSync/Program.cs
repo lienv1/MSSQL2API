@@ -65,6 +65,7 @@ namespace DatabaseSync
             {
                 Console.WriteLine("No token");
                 Console.ReadLine();
+
                 return;
             }
             client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
@@ -73,7 +74,6 @@ namespace DatabaseSync
 
 
             Console.WriteLine("Finished!");
-            Console.ReadLine();
 
         }
 
@@ -224,7 +224,7 @@ namespace DatabaseSync
             try
             {
                 // Send a DELETE request to the specified URL
-                var response = await client.DeleteAsync(targetAPI+"/products");
+                var response = await client.DeleteAsync(targetAPI+"/product/products");
 
                 if (response.IsSuccessStatusCode)
                 {
